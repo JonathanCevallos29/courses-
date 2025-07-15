@@ -1,13 +1,13 @@
 
 # Inyección de Dependencias
-## ¿Qué es Dependencia?
+## ¿Qué es `Dependencia`?
 
 Una dependencia es cualquier clase u objeto que otra clase necesita para funcionar.  
 `Ejemplo:` si una clase Controlador necesita usar un servicio ILoginService, entonces ILoginService es una dependencia de ese controlador.
 
 ---
 
-## ¿Qué es inyección de dependencias (DI)?
+## ¿Qué es `Inyección de dependencias` (DI)?
 
 Es un patrón de diseño que permite que un objeto reciba sus dependencias desde el exterior, en lugar de crearlas él mismo.
 
@@ -42,7 +42,7 @@ Cuando se registran servicios en el contenedor de dependencias de .NET, se defin
 
 ---
 
-## 1. Transient (Transitorio)
+## 1. `Transient` (Transitorio)
 
 ### ¿Qué es?  
 Cada vez que el servicio es solicitado, se crea una nueva instancia.
@@ -57,7 +57,7 @@ Como si cada vez que vas a una tienda, te atiende un nuevo vendedor. Nunca repit
 
 ---
 
-## 2. Scoped (Por solicitud)
+## 2. `Scoped` (Por solicitud)
 
 ### ¿Qué es?
 Se crea **una única instancia por cada solicitud HTTP**. Todos los componentes que participan en esa solicitud usan la misma instancia.
@@ -72,7 +72,7 @@ Como cuando entras al banco y te atiende un asesor que te acompaña en todo el p
 
 ---
 
-## 3. Singleton (Instancia única)
+## 3. `Singleton` (Instancia única)
 
 ### ¿Qué es?
 El servicio se **crea una vez sola** al iniciar la aplicación, y se **usa la misma instancia siempre**.
