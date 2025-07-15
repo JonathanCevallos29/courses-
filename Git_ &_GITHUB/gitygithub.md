@@ -10,7 +10,7 @@ Es un servicio que nos permite compartir y publicar código en la nube.
 
 ---
 
-![flujoGityGitHub](/Git%20y%20GITHUB/image.png)
+![flujoGityGitHub](/Git_%20&_GITHUB//image.png)
 
 El `flujo básico` de git son 4 estados, 3 que suceden en el local y 1 en este caso en GitHub
 
