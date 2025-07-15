@@ -42,3 +42,64 @@ Una Entity (Entidad) es un objeto del dominio que representa una tabla de la bas
 | Persistencia   | Sí                                   | No                                 | No                                    |
 
 
+## `Versionado de APIs`
+
+El versionado de APIs es el proceso de gestionar cambios en una API sin afectar negativamente a las aplicaciones que ya la están usando.
+
+### **¿Por qué es necesario versionar una API?**  
+Con el tiempo, una API puede necesitar:  
+- Agregar nuevos campos o funcionalidades.  
+- Cambiar nombres de rutas o estructuras.  
+- Eliminar funciones antiguas.  
+
+### **Tipos de cambios que requieren versionado:**
+- **Cambios compatibles:** agregar campos opcionales. **No** siempre requiere versión nueva.
+- **Cambios incompatibles:** eliminar campos, cambiar respuestas. **Sí** requieren nueva versión.
+
+### **Formas comunes de versionar una API:**
+
+| Método de versionado           | Descripción                                                      | Ejemplo                                                  |
+|-------------------------------|------------------------------------------------------------------|----------------------------------------------------------|
+| **URL (Ruta)**                | Se incluye el número de versión en la ruta de acceso.            | `https://api.miapp.com/v1/empleados`                    |
+| **Encabezado HTTP (Header)**  | Se indica la versión deseada en el encabezado `Accept`.          | `GET /empleados`  `Accept: application/vnd.miapp.v1+json` |
+| **Query String**              | Se pasa la versión como parámetro en la URL.                     | `https://api.miapp.com/empleados?version=1`             |
+
+### Organización del proyecto por versiones
+
+`Ejemplo:`  
+```
+/Controllers
+   /V1
+      EmpleadosController.cs
+   /V2
+      EmpleadosController.cs
+/DTOs
+   /V1
+      EmpleadoDTO.cs
+   /V2
+      EmpleadoDTO.cs
+/Services
+   /V1
+      EmpleadoService.cs
+   /V2
+      EmpleadoService.cs
+
+```
+
+### Dependencia para el versionado 
+
+`Microsoft`  
+```
+Microsoft.AspNetCore.Mvc.Versioning
+```
+
+`Por consola: `  
+```
+dotnet add package Microsoft.AspNetCore.Mvc.Versioning
+```
+
+### Buenas prácticas del versionado:
+- Mantener las versiones anteriores funcionando por un tiempo razonable.
+- Documentar claramente qué cambios hay en cada versión.
+- No romper cambios de forma silenciosa: los clientes deben saber que algo cambió.
+- Evitar muchas versiones innecesarias. Solo versiona si hay cambios incompatibles.
