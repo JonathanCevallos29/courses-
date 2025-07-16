@@ -235,7 +235,7 @@ public interface IUsuarioRepository : IGenericRepository<Usuario>
 }
 ```
 
-> Usar UnitOfWork para coordinar múltiples repositorios en una sola transacción.
+> Usar **UnitOfWork** para coordinar múltiples repositorios en una sola transacción.
 
 
 
