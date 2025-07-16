@@ -92,6 +92,14 @@ _context.Entry(empleado)
 
 > Aquí, primero se carga el empleado, luego manualmente se carga su departamento.
 
+## NO CONFUNDIR
+
+`Lazy Loading (EF Core)`
+Carga automática de propiedades de navegación solo cuando se acceden por primera vez. Requiere que la propiedad sea virtual y esté habilitado el proxy.
+
+`Lazy<T> (.NET)`
+Permite posponer la creación de un objeto hasta que se necesite. Se usa para optimizar recursos, no tiene relación con bases de datos.
+
 ## Importante
 
 - **Eager loading** (Include) es la opción más común y segura.
