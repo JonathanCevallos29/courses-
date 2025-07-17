@@ -51,25 +51,11 @@ EF Core incluye varios tipos de interceptores para diferentes operaciones, algun
 | Impacto en rendimiento | Directo en la base de datos, pueden afectar transacciones | Puede afectar rendimiento si interceptores hacen operaciones pesadas |
 | Visibilidad            | Transparente para la aplicación                | Visible y configurable desde la aplicación         |
 
+> **No** son lo mismo
+
 ---
 
 ## Ejemplos de uso común
 
 - **Triggers:** Controlar integridad referencial, actualizar campos automáticos, auditoría en BD.
 - **Interceptores:** Registrar logs, medir tiempos, validar datos, modificar comandos SQL antes de ejecutarlos.
-
----
-
-## Resumen
-
-| Concepto               | Descripción                                                       |
-|------------------------|------------------------------------------------------------------|
-| Interceptor            | Componente que captura y modifica acciones de EF Core           |
-| Trigger                | Procedimiento que se ejecuta automáticamente en la BD ante eventos específicos |
-| Uso principal          | Auditoría, logging, modificación de comandos, manejo de conexiones (interceptores) <br> Integridad, auditoría, reglas de negocio (triggers) |
-| Implementación         | Clases en C# implementando interfaces de EF Core                 |
-| Registro               | En configuración del `DbContext` o sus opciones                  |
-| Lenguaje               | C# para interceptores                                            |
-|                        | SQL para triggers                                                |
-
-> **No** son lo mismo
