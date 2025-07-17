@@ -59,3 +59,5 @@ EF Core incluye varios tipos de interceptores para diferentes operaciones, algun
 
 - **Triggers:** Controlar integridad referencial, actualizar campos automáticos, auditoría en BD.
 - **Interceptores:** Registrar logs, medir tiempos, validar datos, modificar comandos SQL antes de ejecutarlos.
+
+> NO es muy común utilizarlos en el día a día, pero es importante saber de ellos.
