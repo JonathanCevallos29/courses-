@@ -107,3 +107,43 @@ MiSistema.sln
 #### `MiSistema.Tests`
 - Proyecto de pruebas unitarias y de integración.
 - Verifica el comportamiento de la lógica del sistema.
+
+## Otro ejemplo de estructura
+```
+Task.sln
+│
+├── Task.API               ← Web API con controladores
+│   ├── Controllers/
+│   ├── Extensions/
+│   └── ...
+
+├── Task.Application       ← Casos de uso, servicios
+│   ├── Interfaces/
+│   ├── Services/
+│   └── ...
+
+├── Task.Domain            ← Entidades, lógica de negocio
+│   ├── Entities/
+│   ├── Enums/
+│   └── ...
+
+├── Task.Infrastructure    ← EF Core, acceso a datos
+│   ├── Data/
+│   ├── Repositories/
+│   └── ...
+
+├── Task.Shared            ← DTOs, Helpers, constantes
+│   ├── DTOs/
+│   ├── Constants/
+│   └── ...
+
+├── Task.MAUI              ← Aplicación móvil / escritorio (Blazor)
+│   ├── Pages/
+│   ├── Components/
+│   ├── Services/
+│   ├── wwwroot/
+│   └── Main.razor
+
+├── Task.Tests             ← Pruebas unitarias (opcional)
+│   └── UnitTests/
+```
