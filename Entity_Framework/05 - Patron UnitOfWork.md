@@ -40,26 +40,27 @@ public interface IUnitOfWork : IDisposable
 
 > **IDisposable**	Permite liberar recursos como conexiones a BD (con Dispose())
 
-2. Crear clase UnitOfWork
+2. Crear clase de implementacion UnitOfWork
 
 ```
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly AppDbContext _context;
+    private readonly DbContext _context;
 
-    public IUsuarioRepository Usuarios { get; private set; }
-    public IRolRepository Roles { get; private set; }
+    public IUserRepository Users { get; }
+    public IAssignmentRepository Assignments { get; }
 
-    public UnitOfWork(AppDbContext context)
+    public UnitOfWork(DbContext context, IUserRepository userRepository, 
+        IAssignmentRepository assignmentRepository)
     {
         _context = context;
-        Usuarios = new UsuarioRepository(_context);
-        Roles = new RolRepository(_context);
+        Users = userRepository;
+        Assignments = assignmentRepository;
     }
 
-    public int Complete()
+    public async Task<int> CompleteAsync()
     {
-        return _context.SaveChanges();
+        return await _context.SaveChangesAsync();
     }
 
     public void Dispose()
@@ -67,6 +68,15 @@ public class UnitOfWork : IUnitOfWork
         _context.Dispose();
     }
 }
+```
+
+Ir a registrar en el program.cs todos:
+
+```
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 ```
 
 > Este patrón también se puede combinar con el repositorio genérico.
